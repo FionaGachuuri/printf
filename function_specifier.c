@@ -1,65 +1,54 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
-  * function_specifier - a function that chooses which 
-  * function will be excecuted.
-  * @format: the pointer to the format string used  
+  * function_specifier - a function that chooses which
+  * function will be executed.
+  * @format: the pointer to the format string used
   * Return: the function that has been called
-  * @functions: list of arguments
   */
 
 int function_specifier(const char *format, ...)
 {
-	int j = 0, k = 0, int chars_printed;
+    int j = 0, k = 0, chars_printed = 0;
 
-	specy_t specy[]{
-	{'c', _putchar},
+    specy_t specy[] = {
+        {'c', _putchar_va},
         {'s', _print_string},
         {'%', _print_percent},
         {'\0', NULL}
-   	};
+    };
 
-	va_list functions;
+    va_list args;
+    va_start(args, format);
 
-	while ((functions == NULL) && functions[j] == '\0')
-	{
-		return (-1);
-	}
-	while(functions != NULL && functions[j] != '\0')
-	{
-		if(functions[j] == '%')
-		{
-			j++;
-			if (functions[j] = '\0')
-			{
-				break;
-				for(specy[k].exact != '\0'; k++)
-				{
-					chars_printed += specy[k].f(args);
-					break;
-				}
-			}
-		}
-		else
-		{
-			_putchar(functions[k]);
-			chars_printed++;
-		}
-		j++;
-	}
-	return (chars_printed);
+    while (format != NULL && format[j] != '\0')
+    {
+        if (format[j] == '%')
+        {
+            j++;
+            if (format[j] == '\0')
+            {
+                break;
+            }
+            for (k = 0; specy[k].exact != '\0'; k++)
+            {
+                if (format[j] == specy[k].exact)
+                {
+                    chars_printed += specy[k].f(args);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            _putchar(format[j]);
+            chars_printed++;
+        }
+        j++;
+    }
+
+    va_end(args);
+    return chars_printed;
 }
 
-
-
-
-
-
-
-
-
-
-
-					return (0);
-
-  
