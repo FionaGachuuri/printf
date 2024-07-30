@@ -11,27 +11,6 @@
 int function_specifier(const char *format, va_list args)
 {
 	int chars_printed;
-	va_list args;
-	int i = 0;
-	total = 0;
-
-	va_start(args,format);
-
-	while (format && *format)
-		if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
-		{
-			format++;
-			int number = va_arg(args, int);
-			_print_integer(number);
-
-			total++;
-		}
-		else
-		{
-			_putchar(*format);
-			total++;
-		}
-	format++;
 
 	if (format == NULL)
 	{
@@ -57,6 +36,14 @@ int function_specifier(const char *format, va_list args)
 			else if (*format == 's')
 			{
 				chars_printed += _print_string(va_arg(args, char *));
+			}
+			else if (*format == 'i')
+			{
+				chars_printed += _print_integer(va_arg(args, int));
+			}
+			else if (*format == 'd')
+			{
+				chars_printed += _print_integer(va_arg(args, int));
 			}
 		}
 		else

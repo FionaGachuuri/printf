@@ -1,10 +1,11 @@
 #include <unistd.h>
-#include <main.h>
+#include "main.h"
 
 /**
   * _print_integer -function that prints integers
+  *@number: integer to print
   */
-void _print_integer(int number)
+int _print_integer(int number)
 {
 	char buffer[12];
 	int negative_number = 0;
@@ -13,9 +14,9 @@ void _print_integer(int number)
 
 	if (number == 0)
 	{
-		_putchar('\n');
 		_putchar('0');
-		return;
+		_putchar('\n');
+		return (0);
 	}
 
 	
@@ -40,7 +41,17 @@ void _print_integer(int number)
 	{
 		_putchar(buffer[--i]);
 	}
+	_putchar('\n');
+	return (0);
+}
 
-int main()
+/* int main()
 {
+	int n = 3644849;
+	int z = -456549;
+	
+	_print_integer(n);
+	_print_integer(z);
+	return(0);
+} */
 
