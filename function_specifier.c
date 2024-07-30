@@ -10,7 +10,7 @@
 
 int function_specifier(const char *format, ...)
 {
-    int j = 0, k = 0, chars_printed = 0;
+    int j = 0, k = 0, chars_printed_ = 0;
 
     specy_t specy[] = {
         {'c', _putchar_va},
@@ -19,8 +19,8 @@ int function_specifier(const char *format, ...)
         {'\0', NULL}
     };
 
-    va_list args;
-    va_start(args, format);
+    va_list  arguments;
+    va_start( arguments, format);
 
     while (format != NULL && format[j] != '\0')
     {
@@ -35,7 +35,7 @@ int function_specifier(const char *format, ...)
             {
                 if (format[j] == specy[k].exact)
                 {
-                    chars_printed += specy[k].f(args);
+                    chars_printed_ += specy[k].f( arguments);
                     break;
                 }
             }
@@ -43,12 +43,12 @@ int function_specifier(const char *format, ...)
         else
         {
             _putchar(format[j]);
-            chars_printed++;
+            chars_printed_++;
         }
         j++;
     }
 
-    va_end(args);
-    return chars_printed;
+    va_end(functions);
+    return (chars_printed_);
 }
 

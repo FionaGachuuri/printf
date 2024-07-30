@@ -8,11 +8,11 @@
 #include <stdlib.h>
 
 /* Function Prototypes */
-int _putchar(char b);
-int _putchar_va(va_list args);
-int _print_string(va_list args);
-int _print_percent(va_list args);
-int function_specifier(const char *format, ...);
+int _putchar(char, b);
+int _print_string(va_list, arguments);
+int _print_percent(va_list, arguments);
+int function_specifier(const char *format, va_list  arguments);
+int _printf_(const char *format, ...)
 
 /* struct specifier */
 /**
@@ -20,7 +20,8 @@ int function_specifier(const char *format, ...);
   * @exact: character member holding the function specifier
   * @f: pointer to the list of arguments used
   */
-typedef struct specy {
+typedef struct specy
+{
     char exact;
     int (*f)(va_list);
 } specy_t;

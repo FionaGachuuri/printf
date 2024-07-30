@@ -6,7 +6,7 @@
   *Return: 0
   */
 
-void _print_percent(void)
+int _print_percent(va_list,  arguments)
 {
 	_putchar(37);
 	_putchar('\n');
