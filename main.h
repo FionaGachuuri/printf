@@ -10,6 +10,7 @@
 
 /*Function Protypes*/
 int _putchar(char b);
+int _print_integer(int number);
 void _print_number(int a);
 int _print_string(char *pstr);
 int _print_percent(void);

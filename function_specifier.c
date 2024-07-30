@@ -37,6 +37,14 @@ int function_specifier(const char *format, va_list args)
 			{
 				chars_printed += _print_string(va_arg(args, char *));
 			}
+			else if (*format == 'i')
+			{
+				chars_printed += _print_integer(va_arg(args, int));
+			}
+			else if (*format == 'd')
+			{
+				chars_printed += _print_integer(va_arg(args, int));
+			}
 		}
 		else
 		{
