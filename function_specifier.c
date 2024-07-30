@@ -32,8 +32,8 @@ int function_specifier(const char *format, va_list args)
 			total++;
 		}
 	format++;
-}
-	/*if (format == NULL)
+
+	if (format == NULL)
 	{
 		return (-1);
 	}
@@ -67,4 +67,4 @@ int function_specifier(const char *format, va_list args)
 	}
 	va_end(args);
 	return (chars_printed);
-}*/
+}
