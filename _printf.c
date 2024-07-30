@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * _printf - A function tat produces the output according to the 
+  * _printf - A function tat produces the output according to the
   *functions
   *@format: the format string
   *Return: No of chars printed

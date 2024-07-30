@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
-  * function_specifier - a function that chooses which 
+  * function_specifier - a function that chooses which
   * function will be excecuted.
-  * @format: the pointer to the format string used  
+  * @format: the pointer to the format string used
   * Return: the function that has been called
-  * @functions: list of arguments
+  * @args: list of arguments
   */
 
 int function_specifier(const char *format, va_list args)
@@ -43,7 +43,7 @@ int function_specifier(const char *format, va_list args)
 		chars_printed += _putchar(*format);
 		}
 		format++;
-	}		
+	}
 	va_end(args);
 	return (chars_printed);
 }
