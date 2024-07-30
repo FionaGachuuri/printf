@@ -1,54 +1,49 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
-  * function_specifier - a function that chooses which
-  * function will be executed.
-  * @format: the pointer to the format string used
+  * function_specifier - a function that chooses which 
+  * function will be excecuted.
+  * @format: the pointer to the format string used  
   * Return: the function that has been called
+  * @functions: list of arguments
   */
 
-int function_specifier(const char *format, ...)
+int function_specifier(const char *format, va_list args)
 {
-    int j = 0, k = 0, chars_printed_ = 0;
+	int chars_printed;
 
-    specy_t specy[] = {
-        {'c', _putchar_va},
-        {'s', _print_string},
-        {'%', _print_percent},
-        {'\0', NULL}
-    };
-
-    va_list  arguments;
-    va_start( arguments, format);
-
-    while (format != NULL && format[j] != '\0')
-    {
-        if (format[j] == '%')
-        {
-            j++;
-            if (format[j] == '\0')
-            {
-                break;
-            }
-            for (k = 0; specy[k].exact != '\0'; k++)
-            {
-                if (format[j] == specy[k].exact)
-                {
-                    chars_printed_ += specy[k].f( arguments);
-                    break;
-                }
-            }
-        }
-        else
-        {
-            _putchar(format[j]);
-            chars_printed_++;
-        }
-        j++;
-    }
-
-    va_end(functions);
-    return (chars_printed_);
+	if (format == NULL)
+	{
+		return (-1);
+	}
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == '\0')
+			{
+				break;
+			}
+			if (*format == 'c')
+			{
+				chars_printed += _putchar(va_arg(args, int));
+			}
+			else if (*format == '%')
+			{
+				chars_printed += _print_percent();
+			}
+			else if (*format == 's')
+			{
+				chars_printed += _print_string(va_arg(args, char *));
+			}
+		}
+		else
+		{
+		chars_printed += _putchar(*format);
+		}
+		format++;
+	}		
+	va_end(args);
+	return (chars_printed);
 }
-

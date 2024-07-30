@@ -1,10 +1,14 @@
 #include "main.h"
+#include <unistd.h>
+/**
+  *_putchar.c -function that writes character b to stdout
+  *@b: character to be printed.
+  *
+  *Return: on success return 0,
+  *on error, return 1
+  */
 
-int _putchar(char c) {
-    return write(1, &c, 1);
+int _putchar(char b)
+{
+        return (write(1, &b, 1));
 }
-
-int _putchar_va(va_list args) {
-    return _putchar(va_arg(args, int));
-}
-

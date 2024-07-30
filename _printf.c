@@ -1,22 +1,19 @@
 #include "main.h"
 
 /**
-  *
-  *
-  *
-  *
-  *
+  * _printf - A function tat produces the output according to the 
+  *functions
+  *@format: the format string
+  *Return: No of chars printed
   */
-
-int _printf_(const char *format, ...)
+int _printf(const char *format, ...)
 {
-	va_list arguments;
-	int chars_printed_;
+	va_list args;
+	int chars_printed;
 
-	va_start(arguments, format);
-	chars_printed_ = function_specifier(format, arguments);
-	va_end(arguments);
+	va_start(args, format);
+	chars_printed = function_specifier(format, args);
+	va_end(args);
 
-	return (char_printed_);
+	return (chars_printed);
 }
-
