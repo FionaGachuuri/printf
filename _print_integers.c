@@ -3,29 +3,39 @@
 
 /**
   * _print_integer -function that prints integers
-  *@number: integer to print
+  * @number: integer to print
+  * Return: total characters to be printed
   */
+
 int _print_integer(int number)
 {
 	char buffer[12];
 	int negative_number = 0;
 	int i = 0;
+	int total_chars = 0;
 
 
 	if (number == 0)
 	{
 		_putchar('0');
-		_putchar('\n');
-		return (0);
+		return (1);
 	}
 
-	
+
 	if (number < 0)
 	{
 		negative_number = 1;
-		number = -number;
+		if (number == INT_MIN)
+		{
+			number = INT_MAX;
+			buffer[i++] = (number % 10) + '1';
+			number /= 10;
+		}
+		else
+		{
+			number = -number;
+		}
 	}
-
 	while (number > 0)
 	{
 		buffer[i++] = (number % 10) + '0';
@@ -40,18 +50,8 @@ int _print_integer(int number)
 	while (i > 0)
 	{
 		_putchar(buffer[--i]);
+		total_chars++;
 	}
 	_putchar('\n');
-	return (0);
+	return (total_chars);
 }
-
-/* int main()
-{
-	int n = 3644849;
-	int z = -456549;
-	
-	_print_integer(n);
-	_print_integer(z);
-	return(0);
-} */
-

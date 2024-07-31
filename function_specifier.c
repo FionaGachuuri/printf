@@ -10,7 +10,7 @@
 
 int function_specifier(const char *format, va_list args)
 {
-	int chars_printed;
+	int chars_printed = 0;
 
 	if (format == NULL)
 	{
@@ -37,21 +37,16 @@ int function_specifier(const char *format, va_list args)
 			{
 				chars_printed += _print_string(va_arg(args, char *));
 			}
-			else if (*format == 'i')
-			{
-				chars_printed += _print_integer(va_arg(args, int));
-			}
-			else if (*format == 'd')
+			else if (*format == 'i' || *format == 'd')
 			{
 				chars_printed += _print_integer(va_arg(args, int));
 			}
 		}
 		else
 		{
-		chars_printed += _putchar(*format);
+			chars_printed += _putchar(*format);
 		}
 		format++;
 	}
-	va_end(args);
 	return (chars_printed);
 }
