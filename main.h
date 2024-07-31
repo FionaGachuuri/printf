@@ -16,4 +16,5 @@ int _print_string(char *pstr);
 int _print_percent(void);
 int function_specifier(const char *format, va_list args);
 int _printf(const char *format, ...);
+int _print_binary(unsigned int number);
 #endif /* MAIN_H */

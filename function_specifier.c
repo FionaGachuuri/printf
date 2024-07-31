@@ -41,6 +41,10 @@ int function_specifier(const char *format, va_list args)
 			{
 				chars_printed += _print_integer(va_arg(args, int));
 			}
+			else if (*format == 'b')
+			{
+				chars_printed += _print_binary(va_arg(args, unsigned int));
+			}
 		}
 		else
 		{
