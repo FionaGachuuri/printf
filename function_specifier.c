@@ -10,7 +10,7 @@
 
 int function_specifier(const char *format, va_list args)
 {
-	int chars_printed;
+	int chars_printed = 0;
 
 	if (format == NULL)
 	{
@@ -48,10 +48,16 @@ int function_specifier(const char *format, va_list args)
 		}
 		else
 		{
-		chars_printed += _putchar(*format);
+			chars_printed += _putchar('%');
+			chars_printed += _putchar(*format);
 		}
-		format++;
 	}
-	va_end(args);
+	else
+	{
+		chars_printed += _putchar(*format);
+	}
+
+	format++;
+	}
 	return (chars_printed);
 }
