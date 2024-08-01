@@ -11,6 +11,8 @@
 int function_specifier(const char *format, va_list args)
 {
 	int chars_printed = 0;
+	int i = 0;
+	char buffer[8];
 
 	if (format == NULL)
 	{
@@ -44,6 +46,10 @@ int function_specifier(const char *format, va_list args)
 			else if (*format == 'b')
 			{
 				chars_printed += _print_binary(va_arg(args, unsigned int));
+			}
+			else if (*format == 'X' || *format == 'x')
+			{
+				chars_printed += write(1, &buffer[i + 1], 8);
 			}
 		}
 		else
