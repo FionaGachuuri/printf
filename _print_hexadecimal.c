@@ -28,9 +28,9 @@ int _print_hexadecimal(unsigned int number, int uppercase)
 			buffer[i--] = digits[number % 16];
 			number /= 16;
 		}
+		i++;
 	}
 
-	total_chars = write(1, &buffer[i + 1], 8 - i - 1);
-
+	total_chars = write(1, &buffer[i + 1], 8 - i);
 	return (total_chars);
 }
