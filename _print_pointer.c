@@ -16,7 +16,7 @@ int _print_pointer(void *ptr)
 
 	if (ptr == NULL)
 	{
-		return (0);
+		return(_print_string("(nil)"));
 	}
 
 	buffer[18] = '\0';
@@ -38,5 +38,3 @@ int _print_pointer(void *ptr)
 
 	return (chars_printed);
 }
-
-
