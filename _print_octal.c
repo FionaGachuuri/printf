@@ -10,7 +10,7 @@ int _print_octal(unsigned int number)
 {
 	char buffer[12];
 	int index = 11;
-	int total_chars = 0
+	int total_chars = 0;
 
 	buffer[index--] = '\0';
 

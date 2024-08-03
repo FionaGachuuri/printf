@@ -51,6 +51,11 @@ int function_specifier(const char *format, va_list args)
 			{
 				chars_printed += write(1, &buffer[i + 1], 8);
 			}
+			else if (*format == 'p')
+			{
+				 chars_printed += _print_string("0x");
+			}
+
 		}
 		else
 		{

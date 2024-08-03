@@ -19,4 +19,6 @@ int _printf(const char *format, ...);
 int _print_binary(unsigned int number);
 int _print_hexadecimal(unsigned int number, int uppercase);
 int _print_octal(unsigned int number);
+int _print_pointer(void *ptr);
+
 #endif /* MAIN_H */
