@@ -11,8 +11,7 @@
 int function_specifier(const char *format, va_list args)
 {
 	int chars_printed = 0;
-	int i = 0;
-	char buffer[8];
+	int uppercase = 0;
 
 	if (format == NULL)
 	{
@@ -47,9 +46,13 @@ int function_specifier(const char *format, va_list args)
 			{
 				chars_printed += _print_binary(va_arg(args, unsigned int));
 			}
-			else if (*format == 'X' || *format == 'x')
+			else if (*format == 'x')
 			{
-				chars_printed += write(1, &buffer[i + 1], 8);
+				chars_printed += _print_hexadecimal(va_arg(args, int), uppercase); 
+			}
+			else if (*format == 'X')
+			{
+				chars_printed += _print_hexadecimal(va_arg(args, int), 1);
 			}
 			else if (*format == 'p')
 			{

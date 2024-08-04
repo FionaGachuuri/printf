@@ -10,13 +10,13 @@
 
 int _print_hexadecimal(unsigned int number, int uppercase)
 {
-	int i = 8;
+	int i = 7;
 	char buffer[9];
 	int total_chars = 0;
 	int num_chars = 0;
 	const char (*digits) = (uppercase) ? "0123456789ABCDEF" : "0123456789abcdef";
 
-	buffer[i--] = '\0';
+	buffer[8] = '\0';
 
 	if (number == 0)
 	{
@@ -31,7 +31,8 @@ int _print_hexadecimal(unsigned int number, int uppercase)
 		}
 		i++;
 	}
-	num_chars = 8 - 1;
+	num_chars = 8 - i;
 	total_chars = write(1, &buffer[i], num_chars);
+	_putchar('\n');
 	return (total_chars);
 }
