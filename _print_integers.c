@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include "main.h"
+#include <limits.h>
 
 /**
   * _print_integer -function that prints integers
@@ -27,9 +28,9 @@ int _print_integer(int number)
 		negative_number = 1;
 		if (number == INT_MIN)
 		{
-			number = INT_MAX;
-			buffer[i++] = (number % 10) + '1';
-			number /= 10;
+			buffer[i++] = '8';
+			number = number / 10;
+			number = - number;
 		}
 		else
 		{
