@@ -30,7 +30,6 @@ int _print_integer(int number)
 		{
 			buffer[i++] = '8';
 			number = number / 10;
-			number = - number;
 		}
 		else
 		{
@@ -54,5 +53,6 @@ int _print_integer(int number)
 		total_chars++;
 	}
 	_putchar('\n');
+
 	return (total_chars);
 }
