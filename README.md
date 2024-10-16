@@ -5,7 +5,7 @@ This is a team project that requires us to create a custom printf function using
 
 ## Authors
 
-- [@Fionagachuuri](https://github.com/FionaGachuuri)
+- [@Fiona Gachuuri](https://github.com/FionaGachuuri)
 - [@Alex Kinyanjui](https://github.com/xander254)
 
 
